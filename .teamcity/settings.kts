@@ -48,7 +48,7 @@ object Build : BuildType({
             executionMode = BuildStep.ExecutionMode.ALWAYS
 
             conditions {
-                equals("teamcity.build.branch", "dev")
+                doesNotContain("teamcity.build.branch", "master")
             }
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
